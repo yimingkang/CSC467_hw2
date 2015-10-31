@@ -102,12 +102,97 @@ enum {
  *    2. Implement the trace parser option of the compiler
  ***********************************************************************/
 program
-  :   tokens       
+  : scope
   ;
-tokens
-  :  tokens token  
+scope
+  : '{' declarations statements '}'
+  ;
+declarations
+  : declarations declaration
   |
   ;
+statements
+  : statements statement
+  |
+  ;
+declaration
+  : type ID ';'
+  | type ID '=' expression ';'
+  | CONST type ID '=' expression
+  |
+  ;
+statement
+  : variable '=' expression ';'
+  | IF '(' expression ')' statement else_statement
+  | WHILE '(' expression ')' statement
+  | scope
+  | ';'
+  ;
+else_statement
+  : ELSE statement
+  |
+  ;
+type
+  : INT_T
+  | IVEC_T
+  | BOOL_T
+  | BVEC_T
+  | FLOAT_T 
+  | VEC_T
+  ;
+expression
+  : constructor
+  | function
+  | INT_C
+  | FLOAT_C
+  | variable
+  | unary_op expression
+  | expression binary_op expression
+  | TRUE_C 
+  | FALSE_C
+  | '(' expression ')'
+  ;
+variable
+  : ID 
+  | ID '[' INT_C ']'
+  ;
+unary_op
+  : '!'
+  | '-'
+  ;
+binary_op
+  : AND
+  | OR
+  | EQ
+  | NEQ
+  | '<'
+  | LEQ
+  | '>'
+  | GEQ
+  | '+'
+  | '-'
+  | '*'
+  | '/'
+  | '^'
+  ;
+constructor
+  : type '(' arguments ')'
+  ;
+function
+  : function_name '(' arguments_opt ')'
+  ;
+function_name
+  : FUNC
+  ;
+arguments_opt
+  : arguments
+  |
+  ;
+arguments
+  : arguments ',' expression 
+  | expression
+  ;
+
 token
   : ID 
   | AND
