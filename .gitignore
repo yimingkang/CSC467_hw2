@@ -35,3 +35,6 @@
 parser.c
 parser.tab.h
 y.output
+compiler467
+y.tab.c
+y.tab.h

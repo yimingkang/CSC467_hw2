@@ -119,7 +119,6 @@ declaration
   : type ID ';'
   | type ID '=' expression ';'
   | CONST type ID '=' expression
-  |
   ;
 statement
   : variable '=' expression ';'
@@ -192,50 +191,6 @@ arguments
   : arguments ',' expression 
   | expression
   ;
-
-token
-  : ID 
-  | AND
-  | OR
-  | NEQ
-  | LEQ
-  | GEQ
-  | EQ
-  | TRUE_C
-  | FALSE_C
-  | INT_C
-  | FLOAT_C
-  | CONST
-  | ELSE
-  | IF
-  | WHILE
-  | FLOAT_T
-  | INT_T
-  | BOOL_T
-  | VEC_T
-  | IVEC_T
-  | BVEC_T
-  | FUNC               
-  | '+'
-  | '-'
-  | '*'
-  | '/'
-  | '^'  
-  | '!'
-  | '='
-  | '<'
-  | '>'   
-  | ','
-  | ';'
-  | '('
-  | ')'
-  | '['
-  | ']'
-  | '{'
-  | '}'                                    
-  ;
-
-
 %%
 
 /***********************************************************************ol
