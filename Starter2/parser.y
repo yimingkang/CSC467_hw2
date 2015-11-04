@@ -82,9 +82,9 @@ enum {
 %token <as_int>   INT_C
 %token <as_str>   ID
 
-%left     '|'
-%left     '&'
-%nonassoc '=' NEQ '<' LEQ '>' GEQ
+%left     OR
+%left     AND
+%nonassoc EQ NEQ '<' LEQ '>' GEQ
 %left     '+' '-'
 %left     '*' '/'
 %right    '^'
@@ -146,40 +146,34 @@ expression
   | INT_C
   | FLOAT_C
   | variable
-  | unary_op expression
-  | expression binary_op expression
+  | '-' expression %prec UMINUS
+  | '!' expression %prec '!'
+  | expression AND expression %prec AND
+  | expression OR expression %prec OR
+  | expression EQ expression %prec EQ
+  | expression NEQ expression %prec NEQ
+  | expression '<' expression %prec '<'
+  | expression LEQ expression %prec LEQ
+  | expression '>' expression %prec '>'
+  | expression GEQ expression %prec GEQ
+  | expression '+' expression %prec '+'
+  | expression '-' expression %prec '-'
+  | expression '*' expression %prec '*'
+  | expression '/' expression %prec '/'
+  | expression '^' expression %prec '^'
   | TRUE_C 
   | FALSE_C
   | '(' expression ')'
   ;
 variable
   : ID 
-  | ID '[' INT_C ']'
-  ;
-unary_op
-  : '!'
-  | '-' %prec UMINUS
-  ;
-binary_op
-  : AND
-  | OR
-  | EQ
-  | NEQ
-  | '<'
-  | LEQ
-  | '>'
-  | GEQ
-  | '+'
-  | '-'
-  | '*'
-  | '/'
-  | '^'
+  | ID '[' INT_C ']' %prec '['
   ;
 constructor
-  : type '(' arguments ')'
+  : type '(' arguments ')' %prec '('
   ;
 function
-  : function_name '(' arguments_opt ')'
+  : function_name '(' arguments_opt ')' %prec '('
   ;
 function_name
   : FUNC
