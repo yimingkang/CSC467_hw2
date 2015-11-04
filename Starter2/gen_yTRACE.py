@@ -26,9 +26,12 @@ def gen(fname):
             elif e_match is not None:
                 # add an empty comment
                 print line, " /*empty*/"
+            else:
+                print line
 
 def get_newline(line, current_rule, matched_rule):
-    # formated print -- also removes trailing spaces
+    # formated print
+    matched_rule = matched_rule.replace("%", "\%")
     part = "{oline} {{ yTRACE(\"{rule} -> {matched}\\n\");}}".format(
         oline=line.rstrip(),
         rule=current_rule,
