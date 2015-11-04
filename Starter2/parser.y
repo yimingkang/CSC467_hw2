@@ -89,6 +89,7 @@ enum {
 %left     '*' '/'
 %right    '^'
 %nonassoc '!' UMINUS
+%left     '(' '['
 
 
 // used to resolve shift/reduce conflict
