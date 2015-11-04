@@ -32,7 +32,7 @@ def gen(fname):
 def get_newline(line, current_rule, matched_rule):
     # formated print
     matched_rule = matched_rule.replace("%", "\%")
-    part = "{oline} {{ yTRACE(\"{rule} -> {matched}\");}}".format(
+    part = "{oline} {{ yTRACE(\"{rule} ===> {matched}\");}}".format(
         oline=line.rstrip(),
         rule=current_rule,
         matched=matched_rule.strip(),
