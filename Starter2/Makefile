@@ -53,6 +53,11 @@ clean:
 	@$(RM) compiler467 $(OBJs) lex.yy.c parser.tab.h parser.c y.output
 man:
 	@nroff -man compiler467.man | less
+test:
+	make all > /dev/null && cd tests && bash run.sh
+
+target:
+	make all > /dev/null && cd tests && bash target.sh
 
 ###########################################################################
 #	Dependencies for the compiler
@@ -64,3 +69,4 @@ lex.yy.c:    scanner.l
 $(LEXER_OBJ): parser.tab.h
 parser.tab.h: parser.c
 	mv y.tab.h parser.tab.h
+
