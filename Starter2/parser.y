@@ -90,8 +90,12 @@ enum {
 %right    '^'
 %nonassoc '!' UMINUS
 
-%start    program
 
+// used to resolve shift/reduce conflict
+%left LOW 
+%left HIGH
+
+%start    program
 %%
 
 /***********************************************************************
@@ -122,14 +126,11 @@ declaration
   ;
 statement
   : variable '=' expression ';'
-  | IF '(' expression ')' statement else_statement
+  | IF '(' expression ')' statement ELSE statement %prec HIGH
+  | IF '(' expression ')' statement %prec LOW
   | WHILE '(' expression ')' statement
   | scope
   | ';'
-  ;
-else_statement
-  : ELSE statement
-  |
   ;
 type
   : INT_T
@@ -157,7 +158,7 @@ variable
   ;
 unary_op
   : '!'
-  | '-'
+  | '-' %prec UMINUS
   ;
 binary_op
   : AND
