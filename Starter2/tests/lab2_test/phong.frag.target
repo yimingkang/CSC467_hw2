@@ -1,0 +1,28 @@
+
+PARSER ERROR, LINE 8: syntax error, unexpected CONST
+type -> VEC_T
+variable -> ID
+expression -> variable
+declaration -> type ID '=' expression ';'
+declarations -> declarations declaration
+type -> VEC_T
+variable -> ID
+expression -> variable
+declaration -> type ID '=' expression ';'
+declarations -> declarations declaration
+type -> VEC_T
+declaration -> type ID ';'
+declarations -> declarations declaration
+type -> VEC_T
+declaration -> type ID ';'
+declarations -> declarations declaration
+type -> VEC_T
+declaration -> type ID ';'
+declarations -> declarations declaration
+type -> VEC_T
+variable -> ID
+expression -> variable
+declaration -> CONST type ID '=' expression
+declarations -> declarations declaration
+statement -> ';'
+statements -> statements statement

@@ -1,6 +1,7 @@
 #!/bin/bash
-echo "+++++++++++++++++++ CREATING TARGET ++++++++++++++++++++"
-echo ""
-for file in ./*.frag; do
-    ../compiler467 -Tn "$file" > "$file".target 2>&1
+for folder in ./lab*_test; do
+    echo "+++++++++++++++++++ CREATING TARGET FOR" "$folder" " ++++++++++++++++++++"
+    cd $folder
+    sh target.sh
+    cd ..
 done
