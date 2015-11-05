@@ -3,7 +3,7 @@ CSC467 lab2
 
 Yiming Kang 998676730  
 
-**Please see my github repo for the commit history: [LINK](git@github.com:yimingkang/CSC467_hw2.git)**  
+**Please see my github repo for the commit history: git@github.com:yimingkang/CSC467__hw2.git**  
 
 Approach:
 ---------
