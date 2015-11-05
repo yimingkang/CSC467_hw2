@@ -54,19 +54,19 @@ clean:
 man:
 	@nroff -man compiler467.man | less
 test:
-	cd tests && bash run.sh
+	make all > /dev/null 2>&1 && cd tests && bash run.sh
 target:
-	make all > /dev/null && cd tests && bash target.sh
+	make all > /dev/null 2>&1 && cd tests && bash target.sh
 
 ###########################################################################
 #	Dependencies for the compiler
 ###########################################################################
 compiler467: ${OBJs}
-${OBJs}:     common.h 
+${OBJs}:     ydebug common.h 
 lex.yy.c:    scanner.l 
 	$(LEX) $(LEXFLAGS) $<
 $(LEXER_OBJ): parser.tab.h
-parser.tab.h: ydebug parser.c
+parser.tab.h: parser.c
 	mv y.tab.h parser.tab.h
 ydebug:
 	python gen_yTRACE.py parser.y.bak > parser.y
