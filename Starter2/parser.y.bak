@@ -84,11 +84,11 @@ enum {
 
 %left     OR
 %left     AND
-%nonassoc EQ NEQ '<' LEQ '>' GEQ
+%left     EQ NEQ '<' LEQ '>' GEQ
 %left     '+' '-'
 %left     '*' '/'
 %right    '^'
-%nonassoc '!' UMINUS
+%left     '!' UMINUS
 %left     '(' '['
 
 
