@@ -88,7 +88,7 @@ enum {
 %left     '+' '-'
 %left     '*' '/'
 %right    '^'
-%left     '!' UMINUS
+%right    '!' UMINUS
 %left     '(' '['
 
 
