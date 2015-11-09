@@ -93,6 +93,8 @@ enum {
 
 
 // used to resolve shift/reduce conflict
+// we give a higher precedence to IF ELSE rule, this allows bison to look ahead for ELSE and associate ELSE with the innermost IF
+// use LOW, HIGH symbols, and %prec on IF ELSE, IF rules to achieve this
 %left LOW 
 %left HIGH
 

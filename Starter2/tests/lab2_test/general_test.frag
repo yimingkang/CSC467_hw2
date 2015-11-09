@@ -41,12 +41,12 @@
                 i = 0;
 
         /* test expressions with comparators*/
-        f_a >0; 
-        f_a <0; 
-        f_a >= 0;
-        f_a <= 0;
-        f_a != 0;
-        _ == true;
+        i = f_a >0; 
+        i = f_a <0; 
+        i = f_a >= 0;
+        i = f_a <= 0;
+        i = f_a != 0;
+        i = _ == true;
         
         /*test array assignment*/
         i = a[1];

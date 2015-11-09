@@ -138,7 +138,7 @@ variable -> ID
 expression -> variable
 expression -> '!' expression %prec '!'
 declaration -> type ID '=' e
-PARSER ERROR, LINE 40: syntax error, unexpected '>', expecting '='
+PARSER ERROR, LINE 56: syntax error, unexpected INT_T, expecting $end
 xpression ';'
 declarations -> declarations declaration
 variable -> ID
@@ -194,4 +194,60 @@ scope -> '{' declarations statements '}'
 statement -> scope
 statement -> WHILE '(' expression ')' statement
 statements -> statements statement
+expression -> TRUE_C
+expression -> TRUE_C
 variable -> ID
+expression -> INT_C
+statement -> variable '=' expression ';'
+statement -> WHILE '(' expression ')' statement
+statement -> WHILE '(' expression ')' statement
+statements -> statements statement
+variable -> ID
+variable -> ID
+expression -> variable
+expression -> INT_C
+expression -> expression '>' expression %prec '>'
+statement -> variable '=' expression ';'
+statements -> statements statement
+variable -> ID
+variable -> ID
+expression -> variable
+expression -> INT_C
+expression -> expression '<' expression %prec '<'
+statement -> variable '=' expression ';'
+statements -> statements statement
+variable -> ID
+variable -> ID
+expression -> variable
+expression -> INT_C
+expression -> expression GEQ expression %prec GEQ
+statement -> variable '=' expression ';'
+statements -> statements statement
+variable -> ID
+variable -> ID
+expression -> variable
+expression -> INT_C
+expression -> expression LEQ expression %prec LEQ
+statement -> variable '=' expression ';'
+statements -> statements statement
+variable -> ID
+variable -> ID
+expression -> variable
+expression -> INT_C
+expression -> expression NEQ expression %prec NEQ
+statement -> variable '=' expression ';'
+statements -> statements statement
+variable -> ID
+variable -> ID
+expression -> variable
+expression -> TRUE_C
+expression -> expression EQ expression %prec EQ
+statement -> variable '=' expression ';'
+statements -> statements statement
+variable -> ID
+variable -> ID '[' INT_C ']' %prec '['
+expression -> variable
+statement -> variable '=' expression ';'
+statements -> statements statement
+scope -> '{' declarations statements '}'
+program -> scope
