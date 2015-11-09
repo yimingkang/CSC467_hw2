@@ -12,7 +12,7 @@ The first step we took was to code in the gramma rules without any modification 
 
 1. Type in the gramma, then `make`  
 2. Got shift/reduce and reduce/reduce conflict, fixed the conflicts  
-3. Added yTRACE() call when each rule is reduced, this is done via a script (gen\_yTRACE.py). yTRACE() prints the exact rule that is being reduced at the moment. This allows us to visualize the tree being constructed so that we can verify the correctness of the tree for a particular synatx. 
+3. Added yTRACE() call when each rule is reduced, this is done via a script `gen\_yTRACE.py`. `yTRACE()` prints the exact rule that is being reduced at the moment. This allows us to visualize the tree being constructed so that we can verify the correctness of the tree for a particular synatx. 
 4. Improved testing framework (baesd on the one we built for lab1)  
 
 Challenges:
@@ -20,7 +20,7 @@ Challenges:
 These are the challenges we found noteworthy (among others):  
 
 1. Dangling else shift/reduce conflict. We decided to give statements with 'else' a higher priority (shift rather than reduce) which is Bison's default  
-2. Figuring out `%prec SYMBOL` assigns the given rule the priority or SYMBOL - this is necessary to resolve some of the shift/reduce conflicts  
+2. Figuring out `%prec SYMBOL` assigns the given rule the priority of `SYMBOL` - this is necessary to resolve some of the shift/reduce conflicts  
 3. Systematic testing: Since we're implementing parser.y, we cannot actually judge whether an **output** is correct. We can only feed it with files known to be syntactically correct and expect it to pass, and files known to be syntactically invalid to fail. Particularly, we need to test the order of precedence given by miniGLSL specification is handled correctly by our parser.  
 
 Testing:
