@@ -65,6 +65,7 @@ enum {
   int as_func;
 }
 
+//defines the tokens used by scanner
 %token          FLOAT_T
 %token          INT_T
 %token          BOOL_T
@@ -82,6 +83,8 @@ enum {
 %token <as_int>   INT_C
 %token <as_str>   ID
 
+//define the association of tokens and precedence. The lower the order the higher the precedence
+//precedence of the rule is determined by precedence of the last terminal on the stack, hence is used to solve shift/reduce conflicts
 %left     OR
 %left     AND
 %left     EQ NEQ '<' LEQ '>' GEQ
@@ -108,6 +111,10 @@ enum {
  *       language grammar
  *    2. Implement the trace parser option of the compiler
  ***********************************************************************/
+
+
+//use %prec to override the precedence of the rule to be the precedence of the terminal after %prec
+//this is the solution to several shift/reduce conficts
 program
   : scope { yTRACE("program -> scope");}
   ;
