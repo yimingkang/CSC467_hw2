@@ -114,6 +114,8 @@ enum {
 
 //use %prec to override the precedence of the rule to be the precedence of the terminal after %prec
 //this is the solution to several shift/reduce conficts
+//yTrace implemented by calling the yTrace(x) function when a rule is matched by the parser, which prints the full name of the rule matached to the stdout
+//the calls to yTrace is added automatically by taking parser.y.bak and adding the {yTrace("....")} to each rule. This is done in Make step with the script gen_yTRACE.py. Hence, parser.y.bak is source code for parser.y
 program
   : scope
   ;
