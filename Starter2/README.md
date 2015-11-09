@@ -1,8 +1,16 @@
 CSC467 lab2
 ===========
 
-Yiming Kang 998676730 
-TianYu Li   999107149 
+Yiming Kang 998676730  
+* coded in the initial rules, wrote gen\_yTRACE.py  
+* debug shift/reduce and reduce/reduce conflicts  
+* testing framework  
+
+TianYu Li   999107149  
+* debug shift/reduce and reduce/reduce conflicts  
+* comprehensive test cases  
+* documentation  
+
 
 Please see my github repo for the commit history git@github.com:yimingkang/CSC467\_hw2.git
 
