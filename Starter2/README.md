@@ -37,15 +37,14 @@ As mentioned above, we have no good way of knowing if the actual y.output is cor
 Test cases:
 -------
 1. lab2\_test/general\_test.frag  
-this test case contains all the valid synatx of miniGLSL. Comments in the test case explains what each line of code is testing for. The test case tests the following:  
-- declarations, constructors, argument list  
-- expressions with operators (+,-,/,\*, ^,(),)  
-- IF ELSE statment, WHILE statement and nested WHILE statement  
-- expressions with compare operators  
-- vector indexing  
-- function, argument lists  
-- scope  
-We look for the synatex generated for each line of code and it should agree with the grammer defined for miniGLSL
+this test case contains all the valid synatx of miniGLSL. Comments in the test case explains what each line of code is testing for. The test case tests the following, We look for the synatex generated for each line of code and it should agree with the grammer defined for miniGLSL  
+    - declarations, constructors, argument list  
+    - expressions with operators (+,-,/,\*, ^,(),)  
+    - IF ELSE statment, WHILE statement and nested WHILE statement  
+    - expressions with compare operators  
+    - vector indexing  
+    - function, argument lists  
+    - scope  
 2. lab2\_test/order\_of\_precedence.frag
 This test case test all the combinations of operators (\*,-,+,/,&&,||,(),>,<,==,!=,<=,>=) in an expression and that the order of precedence of each is handled correctly. The dangling else problem is also tested here. Comments in this test case shows what each line is testing for.  
  
