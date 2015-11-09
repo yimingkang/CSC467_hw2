@@ -50,17 +50,10 @@
         
         /*test array assignment*/
         i = a[1];
+    
+        /*test function usage*/
+        i = dp3(a,b);
+        i = (dp3(a,b) + lit(a)) + lit(a) * dp3(a,b);
 }
 
-/*test function declaration (function type, name, arguments) and scope */
-int dp3(vec4 a, vec4 b){
-    int a =0;
-    a = a + 1;
-}
-int lit(vec4 a){
-
-}
-int rsq(float a){
-
-}
 

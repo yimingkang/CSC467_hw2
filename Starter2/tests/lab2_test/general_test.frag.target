@@ -137,9 +137,7 @@ type -> BOOL_T
 variable -> ID
 expression -> variable
 expression -> '!' expression %prec '!'
-declaration -> type ID '=' e
-PARSER ERROR, LINE 56: syntax error, unexpected INT_T, expecting $end
-xpression ';'
+declaration -> type ID '=' expression ';'
 declarations -> declarations declaration
 variable -> ID
 variable -> ID
@@ -247,6 +245,60 @@ statements -> statements statement
 variable -> ID
 variable -> ID '[' INT_C ']' %prec '['
 expression -> variable
+statement -> variable '=' expression ';'
+statements -> statements statement
+variable -> ID
+function_name -> FUNC
+variable -> ID
+expression -> variable
+arguments -> expression
+variable -> ID
+expression -> variable
+arguments -> arguments ',' expression
+arguments_opt -> arguments
+function -> function_name '(' arguments_opt ')' %prec '('
+expression -> function
+statement -> variable '=' expression ';'
+statements -> statements statement
+variable -> ID
+function_name -> FUNC
+variable -> ID
+expression -> variable
+arguments -> expression
+variable -> ID
+expression -> variable
+arguments -> arguments ',' expression
+arguments_opt -> arguments
+function -> function_name '(' arguments_opt ')' %prec '('
+expression -> function
+function_name -> FUNC
+variable -> ID
+expression -> variable
+arguments -> expression
+arguments_opt -> arguments
+function -> function_name '(' arguments_opt ')' %prec '('
+expression -> function
+expression -> expression '+' expression %prec '+'
+expression -> '(' expression ')'
+function_name -> FUNC
+variable -> ID
+expression -> variable
+arguments -> expression
+arguments_opt -> arguments
+function -> function_name '(' arguments_opt ')' %prec '('
+expression -> function
+function_name -> FUNC
+variable -> ID
+expression -> variable
+arguments -> expression
+variable -> ID
+expression -> variable
+arguments -> arguments ',' expression
+arguments_opt -> arguments
+function -> function_name '(' arguments_opt ')' %prec '('
+expression -> function
+expression -> expression '*' expression %prec '*'
+expression -> expression '+' expression %prec '+'
 statement -> variable '=' expression ';'
 statements -> statements statement
 scope -> '{' declarations statements '}'
