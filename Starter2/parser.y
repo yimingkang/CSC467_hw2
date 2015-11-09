@@ -65,7 +65,6 @@ enum {
   int as_func;
 }
 
-//defines the tokens used by scanner
 %token          FLOAT_T
 %token          INT_T
 %token          BOOL_T
