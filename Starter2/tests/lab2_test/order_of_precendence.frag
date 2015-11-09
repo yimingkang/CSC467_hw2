@@ -27,6 +27,8 @@
 
     /* tests for dangling else problem, the else statement should go with the innermost if*/
     /* both types of syntex should work with the grammer*/
+    /* note, the parser output of the follow if statement should start in line 235 in order_of_precedence.frag.target
+       or please trace through the entire the file to find the parser output of the following statement */
     if (a > b)
         if ( c>d)
             i = 0;
@@ -50,4 +52,11 @@
             i =0;
         else
             i =1;
+    /* use brackets to force ELSE to associate with the outer IF, not the default inner IF*/    
+    if (a>b){
+        if (c>d)
+            i = 0;
+    }else{
+        i = 0;
+    }
 }

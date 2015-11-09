@@ -307,5 +307,30 @@ statement -> variable '=' expression ';'
 statement -> IF '(' expression ')' statement ELSE statement %prec HIGH
 statement -> IF '(' expression ')' statement %prec LOW
 statements -> statements statement
+variable -> ID
+expression -> variable
+variable -> ID
+expression -> variable
+expression -> expression '>' expression %prec '>'
+variable -> ID
+expression -> variable
+variable -> ID
+expression -> variable
+expression -> expression '>' expression %prec '>'
+variable -> ID
+expression -> INT_C
+statement -> variable '=' expression ';'
+statement -> IF '(' expression ')' statement %prec LOW
+statements -> statements statement
+scope -> '{' declarations statements '}'
+statement -> scope
+variable -> ID
+expression -> INT_C
+statement -> variable '=' expression ';'
+statements -> statements statement
+scope -> '{' declarations statements '}'
+statement -> scope
+statement -> IF '(' expression ')' statement ELSE statement %prec HIGH
+statements -> statements statement
 scope -> '{' declarations statements '}'
 program -> scope
